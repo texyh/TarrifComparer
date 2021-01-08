@@ -2,7 +2,7 @@
 {
     public class TarrifComparismResult
     {
-        public string ProductName { get; set; }
+        public string TarrifName { get; set; }
 
         public double AnnualCost { get; set; }
     }

@@ -23,7 +23,7 @@ namespace TarrifComparer.Core
         {
             return Products.Select(x => new TarrifComparismResult
             {
-                ProductName = x.Name,
+                TarrifName = x.Name,
                 AnnualCost = x.CalculateAnnualCost(electricityConsumedInKwHrPerYear)
             })
             .OrderBy(x => x.AnnualCost)
