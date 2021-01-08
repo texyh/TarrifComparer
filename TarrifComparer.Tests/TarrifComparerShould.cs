@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using TarrifComparer.Core;
+using TarrifComparer.Core.Constants;
 using TarrifComparer.Core.Models;
 using Xunit;
 
@@ -34,6 +36,9 @@ namespace TarrifComparer.Tests
             var results = comparer.Compare(electricityConsumedInKwHrPerYear);
 
             Assert.IsAssignableFrom<IList<TarrifComparismResult>>(results);
+            Assert.Equal(2, results.Count);
+            Assert.Equal(830, results.FirstOrDefault(x => x.TarrifName == Tarrif.BASIC_TARRIF).AnnualCost);
+            Assert.Equal(800, results.FirstOrDefault(x => x.TarrifName == Tarrif.PACKAGED_TARRIF).AnnualCost);
         }
 
 

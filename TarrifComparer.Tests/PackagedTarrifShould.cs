@@ -20,6 +20,7 @@ namespace TarrifComparer.Tests
 
         [Theory]
         [InlineData(3500, 800)]
+        [InlineData(4000, 800)]
         [InlineData(4500, 950)]
         [InlineData(6000, 1400)]
         public void Calculate_AnnualCost_When_Given_Annual_Electricity_Consumption(int electricityConsumed, double expectedAnnualCost)
