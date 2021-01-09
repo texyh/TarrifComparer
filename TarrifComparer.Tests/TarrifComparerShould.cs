@@ -11,7 +11,7 @@ namespace TarrifComparer.Tests
 {
     public class TarrifComparerShould
     {
-        private readonly TarrifProductComparer _sut;
+        private readonly TarrifProductComparer _sut; // subject under test
 
         public TarrifComparerShould()
         {
