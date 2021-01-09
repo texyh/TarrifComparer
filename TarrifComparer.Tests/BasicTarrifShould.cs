@@ -9,13 +9,17 @@ namespace TarrifComparer.Tests
 {
     public class BasicTarrifShould
     {
+        private readonly BasicTarrif _sut;
+
+        public BasicTarrifShould()
+        {
+            _sut = new BasicTarrif();
+        }
+
         [Fact]
         public void Be_Initializable()
         {
-            var basicTarrif = new BasicTarrif();
-
-            Assert.NotNull(basicTarrif);
-            Assert.Equal(Tarrif.BASIC_TARRIF, basicTarrif.Name);
+            Assert.Equal(Tarrif.BASIC_TARRIF, _sut.Name);
         }
 
         [Theory]
@@ -24,9 +28,7 @@ namespace TarrifComparer.Tests
         [InlineData(6000, 1380)]
         public void Calculate_AnnualCost_When_Given_Annual_Electricity_Consumption(int electricityConsumed, double expectedAnnualCost)
         {
-            var basicTarrif = new BasicTarrif();
-
-            var annualCost = basicTarrif.CalculateAnnualCost(electricityConsumed);
+            var annualCost = _sut.CalculateAnnualCost(electricityConsumed);
 
             Assert.Equal(expectedAnnualCost, annualCost);
         }

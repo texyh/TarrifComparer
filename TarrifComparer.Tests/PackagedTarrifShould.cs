@@ -9,13 +9,17 @@ namespace TarrifComparer.Tests
 {
     public class PackagedTarrifShould
     {
+        private readonly PackagedTarrif _sut;
+
+        public PackagedTarrifShould()
+        {
+            _sut = new PackagedTarrif();
+        }
+
         [Fact]
         public void Be_Initializable()
         {
-            var packagedTarrif = new PackagedTarrif();
-
-            Assert.NotNull(packagedTarrif);
-            Assert.Equal(Tarrif.PACKAGED_TARRIF, packagedTarrif.Name);
+            Assert.Equal(Tarrif.PACKAGED_TARRIF, _sut.Name);
         }
 
         [Theory]
@@ -25,9 +29,7 @@ namespace TarrifComparer.Tests
         [InlineData(6000, 1400)]
         public void Calculate_AnnualCost_When_Given_Annual_Electricity_Consumption(int electricityConsumed, double expectedAnnualCost)
         {
-            var packagedTarrif = new PackagedTarrif();
-
-            var annualCost = packagedTarrif.CalculateAnnualCost(electricityConsumed);
+            var annualCost = _sut.CalculateAnnualCost(electricityConsumed);
 
             Assert.Equal(annualCost, expectedAnnualCost);
         }
